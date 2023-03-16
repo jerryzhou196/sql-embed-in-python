@@ -1,5 +1,3 @@
-<i> Download VSIX <a href="https://github.com/jerryzhou196/sql-embed-in-python/releases/download/First/sql-in-python-highlighter-formatter-0.0.1.vsix"> here </a> and use Install from VSIX to install to add to VS Code</i> 
- 
 ## Features
 
 This extension was primarily built out of a very specific, niche scenario in my latest co-op. It provides two tools:
@@ -12,7 +10,8 @@ In addition, the config is set up in a very specific way according to my workpla
 
 > NOTE: The formatter is specially designed to handle SQL queries with placeholder values (?), which typically cannot be formatted. 
 
-
+<i> Download VSIX <a href="https://github.com/jerryzhou196/sql-embed-in-python/releases/download/First/sql-in-python-highlighter-formatter-0.0.1.vsix"> here </a> and use Install from VSIX to install to add to VS Code</i> 
+ 
 ## How To Use
 
 Within `Python` files, anything you close with three quotes will be rendered as SQL syntax. 

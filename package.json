@@ -3,13 +3,19 @@
   "displayName": "SQL in Python Highlighter/Formatter",
   "description": "",
   "version": "0.0.1",
+  "publisher": "Jerry Zhou",
   "engines": {
     "vscode": "^1.76.0"
   },
+  "repository": "https://github.com/jerryzhou196/sql-embed-in-python",
   "categories": [
+    "Formatters",
     "Other"
   ],
   "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:sql-embed-in-python.format-SQL"
+  ],
   "contributes": {
     "commands": [
       {

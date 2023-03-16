@@ -5,7 +5,7 @@ const vscode = require("vscode");
 const sql_formatter_1 = require("sql-formatter");
 function activate(context) {
     // Register a new command for formatting SQL
-    let disposable = vscode.commands.registerCommand("sql-embed-in-python.format-SQL", () => {
+    vscode.commands.registerCommand("sql-embed-in-python.format-SQL", () => {
         // Get the active editor
         const editor = vscode.window.activeTextEditor;
         if (editor) {
@@ -14,6 +14,9 @@ function activate(context) {
             const selection = editor.selection;
             // Get the selected text
             const text = document.getText(selection);
+            text.replace(/\?/g, () => {
+                return "PLACEHOLDER_COLUMN";
+            });
             // Check if the selected text is a Python string literal containing SQL
             // if (text.startsWith('\'\'\'') && text.endsWith('\'\'\'')) {
             // const sql = text.slice(3, -3); this is only used when the wrong thing is selected
@@ -41,6 +44,10 @@ function activate(context) {
             })
                 .then((selectedOption) => {
                 const formattedSql = (0, sql_formatter_1.format)(text.replace(/^(\'\'\'|\"\"\")|(\'\'\'|\"\"\")$/gm, ""), { language: selectedOption });
+                formattedSql.replace(/PLACEHOLDER_COLUMN/g, () => {
+                    return "?";
+                });
+                console.log(formattedSql);
                 // Replace the selected text with the formatted SQL
                 editor.edit((editBuilder) => {
                     editBuilder.replace(selection, formattedSql);
@@ -58,7 +65,6 @@ function activate(context) {
             vscode.window.showErrorMessage("No active editor");
         }
     });
-    context.subscriptions.push(disposable);
 }
 exports.activate = activate;
 // This method is called when your extension is deactivated

@@ -6,16 +6,16 @@ This extension was primarily built out of a very specific, niche scenario in my 
 
 - Syntax Highlighting for SQL queries embedded within Python Files 
 
-In addition, the config is set up in a very specific way according to my workplace. As a result, one can and should config their specific SQL formats within the extension settings.
+In addition, the config is set up in a very specific way according to my workplace. In the borderline-miraculous case that someone is in need of both of these features, they should config their specific SQL formats within the extension settings.
 
 > NOTE: The formatter is specially designed to handle SQL queries with placeholder values (?), which typically cannot be formatted. 
 
 
 ## How To Use
 
-Within python files, anything you close with three quotes will be rendered as SQL syntax. 
+Within `Python` files, anything you close with three quotes will be rendered as SQL syntax. 
 
-To format these embedded SQL queries, you  need to select the text within your edito, and then 
+To format these embedded SQL queries, you  need to select the text within your editor, and then open the command palette (`CMD` + `shift` + `P`) and run the Format Embedded SQL command. 
 
 
 ## Requirements

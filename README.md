@@ -4,13 +4,23 @@ This extension was primarily built out of a very specific, niche scenario in my 
 
 - Formatter for SQL queries embedded within Python Files
 
-- Syntax Highlighting for SQL queries embedded within Python Files
-
-The formatter is specially designed to handle SQL queries with placeholder values (?), which typically cannot be formatted. 
+- Syntax Highlighting for SQL queries embedded within Python Files 
 
 In addition, the config is set up in a very specific way according to my workplace. As a result, one can and should config their specific SQL formats within the extension settings.
 
+> NOTE: The formatter is specially designed to handle SQL queries with placeholder values (?), which typically cannot be formatted. 
+
+
+## How To Use
+
+Within python files, anything you close with three quotes will be rendered as SQL syntax. 
+
+To format these embedded SQL queries, you  need to select the text within your edito, and then 
+
+
 ## Requirements
+
+The SQL syntax highlighting should work right out of the box. 
 
 To be able to use the embedded SQL formatter feature, you will need to run the following command:
 

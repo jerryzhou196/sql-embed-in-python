@@ -6,7 +6,7 @@ This extension was primarily built out of a very specific, niche scenario in my 
 
 - Syntax Highlighting for SQL queries embedded within Python Files
 
-The formatter is specially designed to handle SQL queries with placeholder values (?), which typically cannot be formatted. In addition, the config is set up in a very specific way
+The formatter is specially designed to handle SQL queries with placeholder values (?), which typically cannot be formatted. In addition, the config is set up in a very specific way according to my workplace. As a result, one can and should config their specific SQL formats within the extension settings.
 
 ## Requirements
 

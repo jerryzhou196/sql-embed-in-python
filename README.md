@@ -1,3 +1,5 @@
+<h3> Download VSIX <a href="https://github.com/jerryzhou196/sql-embed-in-python/releases/download/First/sql-in-python-highlighter-formatter-0.0.1.vsix"> here </a> </h3> and use Install from VSIX to install
+ 
 ## Features
 
 This extension was primarily built out of a very specific, niche scenario in my latest co-op. It provides two tools:

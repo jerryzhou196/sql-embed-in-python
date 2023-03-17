@@ -1,0 +1,12 @@
+.vscode
+.vscode/**
+node_modules
+.vscode-test/**
+.yarnrc
+**/*.map
+**/*.ts
+extension.js
+extension.js.map
+sql-in-python-highlighter-formatter-0.0.*.vsix
+out
+dist

@@ -19,7 +19,8 @@ Within `Python` files, anything you close with three double quotes (`"""`) will 
 
 # This is mainly useful, because now SQL errors can be caught immediately:
 
-o
+<img width="1123" alt="image" src="https://user-images.githubusercontent.com/46613983/225865999-467bcac5-f8e3-4622-b348-e0702d838cdd.png">
+
 `.execute("""` begins a SQL code block, and `"""` is what ends it - everything in between will be rendered as SQL instead of a raw Python string.
 
 > NOTE: The formatter is specially designed to handle SQL queries with placeholder values ?, in addition to {}

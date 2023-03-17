@@ -2,6 +2,7 @@
   "name": "sql-in-python-highlighter-formatter",
   "displayName": "SQL in Python Highlighter/Formatter",
   "description": "",
+  "icon": "images/pythonsql.png",
   "version": "0.0.1",
   "publisher": "jerrdeh",
   "engines": {

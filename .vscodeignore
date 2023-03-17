@@ -11,3 +11,6 @@ vsc-extension-quickstart.md
 **/.eslintrc.json
 **/*.map
 **/*.ts
+extension.js
+extension.js.map
+sql-in-python-highlighting-0.0.*.vsix

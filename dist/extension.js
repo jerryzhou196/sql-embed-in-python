@@ -1,1 +1,94 @@
-(()=>{"use strict";var e={822:e=>{e.exports=require("sql-formatter")},496:e=>{e.exports=require("vscode")}},t={};function r(o){var n=t[o];if(void 0!==n)return n.exports;var i=t[o]={exports:{}};return e[o](i,i.exports,r),i.exports}var o={};(()=>{var e=o;Object.defineProperty(e,"__esModule",{value:!0}),e.deactivate=e.activate=void 0;const t=r(496),n=r(822);e.activate=function(e){const r={keywordCasing:"upper",linesBetweenQueries:2,whereOnNewLine:!0,groupByOnNewLine:!0,orderByOnNewLine:!0,selectItemOnNewLine:!0,joinTableOnNewLine:!0};t.commands.registerCommand("sql-embed-in-python.format-SQL",(()=>{const e=t.window.activeTextEditor;if(e){const o=e.document,i=e.selection;let s=o.getText(i);s=s.replace(/\?/g,(()=>"PLACEHOLDER_COLUMN")),s=s.replace(/\}/g,(()=>"PLACEHOLDER_RIGHT_BRACE")),s=s.replace(/\{/g,(()=>"PLACEHOLDER_LEFT_BRACE")),console.log(s),t.window.showQuickPick(["mysql","sql","bigquery","db2","hive","mariadb","n1ql","plsql","postgresql","redshift","singlestoredb","snowflake","spark","sqlite","transactsql","trino"],{placeHolder:"Select SQL dialect"}).then((o=>{let a=(0,n.format)(s.replace(/^(\'\'\'|\"\"\")|(\'\'\'|\"\"\")$/gm,""),{language:o,...r});a=a.replace(/PLACEHOLDER_COLUMN/g,(()=>"?")),a=a.replace(/PLACEHOLDER_RIGHT_BRACE/g,(()=>"{")),a=a.replace(/PLACEHOLDER_LEFT_BRACE/g,(()=>"}")),console.log(a),e.edit((e=>{e.replace(i,a)})),t.window.showInformationMessage("Formatted SQL in Python string literal")}))}else t.window.showErrorMessage("No active editor")}))},e.deactivate=function(){}})(),module.exports=o})();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deactivate = exports.activate = void 0;
+const vscode = require("vscode");
+const sql_formatter_1 = require("sql-formatter");
+function activate(context) {
+    // Define formatting options
+    const formatOptions = {
+        keywordCasing: "upper",
+        linesBetweenQueries: 2,
+        whereOnNewLine: true,
+        groupByOnNewLine: true,
+        orderByOnNewLine: true,
+        selectItemOnNewLine: true,
+        joinTableOnNewLine: true,
+    };
+    // Register a new command for formatting SQL
+    vscode.commands.registerCommand("sql-embed-in-python.format-SQL", () => {
+        // Get the active editor
+        const editor = vscode.window.activeTextEditor;
+        if (editor) {
+            // Get the document and selection ranges
+            const document = editor.document;
+            const selection = editor.selection;
+            // Get the selected text
+            let text = document.getText(selection);
+            text = text.replace(/\?/g, () => {
+                return "PLACEHOLDER_COLUMN";
+            });
+            /\{/;
+            text = text.replace(/\}/g, () => {
+                return "PLACEHOLDER_RIGHT_BRACE";
+            });
+            text = text.replace(/\{/g, () => {
+                return "PLACEHOLDER_LEFT_BRACE";
+            });
+            console.log(text);
+            // Format the SQL using sql-formatter
+            vscode.window
+                .showQuickPick([
+                "mysql",
+                "sql",
+                "bigquery",
+                "db2",
+                "hive",
+                "mariadb",
+                "n1ql",
+                "plsql",
+                "postgresql",
+                "redshift",
+                "singlestoredb",
+                "snowflake",
+                "spark",
+                "sqlite",
+                "transactsql",
+                "trino",
+            ], {
+                placeHolder: "Select SQL dialect",
+            })
+                .then((selectedOption) => {
+                let formattedSql = (0, sql_formatter_1.format)(text.replace(/^(\'\'\'|\"\"\")|(\'\'\'|\"\"\")$/gm, ""), { language: selectedOption, ...formatOptions });
+                formattedSql = formattedSql.replace(/PLACEHOLDER_COLUMN/g, () => {
+                    return "?";
+                });
+                formattedSql = formattedSql.replace(/PLACEHOLDER_RIGHT_BRACE/g, () => {
+                    return "{";
+                });
+                formattedSql = formattedSql.replace(/PLACEHOLDER_LEFT_BRACE/g, () => {
+                    return "}";
+                });
+                console.log(formattedSql);
+                // Replace the selected text with the formatted SQL
+                editor.edit((editBuilder) => {
+                    editBuilder.replace(selection, formattedSql);
+                });
+                // Show a message indicating that the SQL has been formatted
+                vscode.window.showInformationMessage("Formatted SQL in Python string literal");
+                // } else {
+                // Show an error message if the selected text is not a Python string literal containing SQL
+                //   vscode.window.showErrorMessage('Selected text is not a Python string literal containing SQL');
+                // }
+            });
+        }
+        else {
+            // Show an error message if no editor is active
+            vscode.window.showErrorMessage("No active editor");
+        }
+    });
+}
+exports.activate = activate;
+// This method is called when your extension is deactivated
+function deactivate() { }
+exports.deactivate = deactivate;
+//# sourceMappingURL=extension.js.map

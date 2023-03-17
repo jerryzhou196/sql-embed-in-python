@@ -16,6 +16,9 @@
           "beginCaptures": {
             "1": {
               "name": "punctuation.definition.string.begin.python"
+            },
+            "0": {
+              "name": "support.function.execute.python"
             }
           },
           "endCaptures": {

@@ -6,6 +6,13 @@ This extension was primarily built out of a very specific, niche scenario in my 
 
 - Syntax Highlighting for SQL queries embedded within Python Files
 
+# Before
+<img width="1140" alt="image" src="https://user-images.githubusercontent.com/46613983/225865088-ec3a9f2b-5097-424a-b947-fa5c565ba482.png">
+
+# After
+<img width="1140" alt="image" src="https://user-images.githubusercontent.com/46613983/225865146-2faab9d4-6840-437a-b57f-ac375ac85f3a.png">
+
+
 ## How To Use
 
 Within `Python` files, anything you close with three double quotes (`"""`) will be rendered as SQL syntax.

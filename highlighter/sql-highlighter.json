@@ -11,7 +11,7 @@
     "highlight-string-sql": {
       "patterns": [
         {
-          "begin": "('''|\"\"\")",
+          "begin": "(?i:execute)\\([ \\t\\n]*('''|\"\"\")",
           "end": "(\\1)",
           "beginCaptures": {
             "1": {

@@ -3,7 +3,7 @@
   "displayName": "SQL in Python Highlighter/Formatter",
   "description": "",
   "version": "0.0.1",
-  "publisher": "Jerry Zhou",
+  "publisher": "jerrdeh",
   "engines": {
     "vscode": "^1.76.0"
   },
@@ -12,7 +12,7 @@
     "Formatters",
     "Other"
   ],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "activationEvents": [
     "onCommand:sql-embed-in-python.format-SQL"
   ],
@@ -40,12 +40,8 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "webpack": "webpack --mode production",
+    "vscode:prepublish": "npm run webpack"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
@@ -58,7 +54,11 @@
     "eslint": "^8.26.0",
     "glob": "^8.0.3",
     "mocha": "^10.1.0",
-    "typescript": "^4.8.4"
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1",
+    "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
     "sql-formatter": "^12.1.3"

@@ -2,6 +2,16 @@ import * as vscode from "vscode";
 import { format } from "sql-formatter";
 
 export function activate(context: vscode.ExtensionContext) {
+  // Define formatting options
+  const formatOptions = {
+    keywordCasing: "upper",
+    linesBetweenQueries: 2,
+    whereOnNewLine: true,
+    groupByOnNewLine: true,
+    orderByOnNewLine: true,
+    selectItemOnNewLine: true,
+    joinTableOnNewLine: true,
+  };
   // Register a new command for formatting SQL
   vscode.commands.registerCommand("sql-embed-in-python.format-SQL", () => {
     // Get the active editor
@@ -13,16 +23,22 @@ export function activate(context: vscode.ExtensionContext) {
       const selection = editor.selection;
 
       // Get the selected text
-      const text = document.getText(selection);
+      let text = document.getText(selection);
 
-      text.replace(/\?/g, () => {
+      text = text.replace(/\?/g, () => {
         return "PLACEHOLDER_COLUMN";
       });
+      /\{/;
 
-      // Check if the selected text is a Python string literal containing SQL
-      // if (text.startsWith('\'\'\'') && text.endsWith('\'\'\'')) {
-      // const sql = text.slice(3, -3); this is only used when the wrong thing is selected
+      text = text.replace(/\}/g, () => {
+        return "PLACEHOLDER_RIGHT_BRACE";
+      });
 
+      text = text.replace(/\{/g, () => {
+        return "PLACEHOLDER_LEFT_BRACE";
+      });
+
+      console.log(text);
       // Format the SQL using sql-formatter
       vscode.window
         .showQuickPick(
@@ -49,12 +65,21 @@ export function activate(context: vscode.ExtensionContext) {
           }
         )
         .then((selectedOption) => {
-          const formattedSql = format(
+          let formattedSql = format(
             text.replace(/^(\'\'\'|\"\"\")|(\'\'\'|\"\"\")$/gm, ""),
-            { language: selectedOption }
+            { language: selectedOption, ...formatOptions }
           );
-          formattedSql.replace(/PLACEHOLDER_COLUMN/g, () => {
+          formattedSql = formattedSql.replace(/PLACEHOLDER_COLUMN/g, () => {
             return "?";
+          });
+          formattedSql = formattedSql.replace(
+            /PLACEHOLDER_RIGHT_BRACE/g,
+            () => {
+              return "{";
+            }
+          );
+          formattedSql = formattedSql.replace(/PLACEHOLDER_LEFT_BRACE/g, () => {
+            return "}";
           });
           console.log(formattedSql);
           // Replace the selected text with the formatted SQL

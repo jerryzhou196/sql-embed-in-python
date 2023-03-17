@@ -1,4 +1,7 @@
+src
+.vscode
 .vscode/**
+node_modules
 .vscode-test/**
 src/**
 .gitignore

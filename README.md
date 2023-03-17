@@ -6,10 +6,10 @@ This extension was primarily built out of a very specific, niche scenario in my 
 
 - Syntax Highlighting for SQL queries embedded within Python Files
 
-# Before
+### Before
 <img width="1140" alt="image" src="https://user-images.githubusercontent.com/46613983/225865088-ec3a9f2b-5097-424a-b947-fa5c565ba482.png">
 
-# After
+### After
 <img width="1140" alt="image" src="https://user-images.githubusercontent.com/46613983/225865146-2faab9d4-6840-437a-b57f-ac375ac85f3a.png">
 
 
@@ -17,7 +17,7 @@ This extension was primarily built out of a very specific, niche scenario in my 
 
 Within `Python` files, anything you close with three double quotes (`"""`) will be rendered as SQL syntax.
 
-# This is mainly useful, because now SQL errors can be caught immediately:
+## This is mainly useful, because now SQL errors can be caught immediately:
 
 <img width="1123" alt="image" src="https://user-images.githubusercontent.com/46613983/225865999-467bcac5-f8e3-4622-b348-e0702d838cdd.png">
 

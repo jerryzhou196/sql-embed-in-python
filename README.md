@@ -5,7 +5,7 @@ This extension was primarily built out of a very specific, niche scenario in my 
 - Formatter for SQL queries embedded within Python Files
 
 - Syntax Highlighting 
-- 
+
 for SQL queries embedded within Python Files
 
 ### Before:

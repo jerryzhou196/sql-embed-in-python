@@ -9,7 +9,9 @@ for SQL queries embedded within Python Files
 
 ### Before & After Comparison:
 <img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464783-1c669915-5744-4f90-b54c-afaa3819bb6a.png">
-<img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464801-d7408002-8295-42e3-8803-153584f4189a.png">
+
+<img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226467742-4cc6bc52-6244-4b4d-bd94-8ff8a5dbe679.png">
+
 
 #### The utilty of this comes with the fact that SQL errors can be caught immediately instead of run-time:
 <br>

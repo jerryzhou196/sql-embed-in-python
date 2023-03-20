@@ -7,10 +7,8 @@ This extension was primarily built out of a very specific, niche scenario in my 
 - Syntax Highlighting for SQL queries embedded within Python Files
 
 ### Before & After:
-
-![image](https://user-images.githubusercontent.com/46613983/226263230-9cd1080a-2b1c-4045-a321-38510d9d9a79.png)
-
-![image](https://user-images.githubusercontent.com/46613983/226263218-f4ac50bd-42d0-4e1c-ad74-170835f98ae2.png)
+![image](https://user-images.githubusercontent.com/46613983/226263281-f07e93e1-2c4b-4820-b29e-fb20c7bda70f.png)
+![image](https://user-images.githubusercontent.com/46613983/226263300-4bfbbe8c-d275-4d66-b337-1762a544b665.png)
 
 ### This is mainly useful, because now SQL errors can be caught immediately:
 

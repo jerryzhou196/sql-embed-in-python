@@ -67,7 +67,6 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "@sqltools/formatter": "^1.2.5",
     "sql-formatter": "^12.1.3"
   }
 }

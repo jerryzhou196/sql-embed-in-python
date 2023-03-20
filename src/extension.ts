@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { format } from "@sqltools/formatter";
+import { format } from "sql-formatter";
 
 export function activate(context: vscode.ExtensionContext) {
   // Register a new command for formatting SQL
@@ -34,20 +34,17 @@ export function activate(context: vscode.ExtensionContext) {
         try {
           text = format(text, {
             language: "sql",
-            indent: "      ",
-            reservedWordCase: "upper",
-            params: ["?", "{", "}"],
+            useTabs: true,
+            indentStyle: "standard",
+            tabWidth: 2,
+            commaPosition: "after",
+            linesBetweenQueries: 2,
+            expressionWidth: 50,
+            keywordCase: "upper",
           });
 
           const lines = text.split("\n");
           const newLines: string[] = [];
-
-          // get general indentation by seeing how far the intial line is indented
-          const currentLineNumber = selection.start.line;
-          const currentLine = document.lineAt(currentLineNumber);
-          const currentIndentation =
-            currentLine.firstNonWhitespaceCharacterIndex;
-
           lines.forEach((line: string) => {
             const regex = /^\s*--/;
             const isFirst = regex.test(line);
@@ -68,11 +65,6 @@ export function activate(context: vscode.ExtensionContext) {
           });
           text = newLines.join("\n");
 
-          text = text
-            .split("\n")
-            .map((line) => " ".repeat(currentIndentation) + line)
-            .join("\n");
-
           // Replace the selected text with the formatted SQL
           editor.edit((editBuilder) => {
             editBuilder.replace(selection, text);
@@ -90,7 +82,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         // text = text.replace(/PLACEHOLDER_RIGHT_BRACE/g, () => {
         //   return "}";
-        // })       // Add the mmmmmmation to each line in the formatted SQL
+        // })       // Add the indentation to each line in the formatted SQL
         // text = text
         //   .split("\n")
         //   .map((line) => " ".repeat(currentIndentation) + line)

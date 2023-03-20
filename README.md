@@ -8,7 +8,7 @@ This extension was primarily built out of a very specific, niche scenario in my 
 
 ### Before & After
 
-![compare](https://user-images.githubusercontent.com/46613983/226257335-099fc1ff-13df-4bb2-915f-2bd89b6eabe5.png)
+![compare](https://user-images.githubusercontent.com/46613983/226260022-0bd8f690-11b4-465f-96c2-645d304f7b20.png)
 
 ### This is mainly useful, because now SQL errors can be caught immediately:
 

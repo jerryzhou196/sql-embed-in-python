@@ -6,13 +6,9 @@ This extension was primarily built out of a very specific, niche scenario in my 
 
 - Syntax Highlighting for SQL queries embedded within Python Files
 
-### Before
+### Before & After
 
-<img width="1140" alt="image" src="https://user-images.githubusercontent.com/46613983/225865088-ec3a9f2b-5097-424a-b947-fa5c565ba482.png">
-
-### After
-
-<img width="1140" alt="image" src="https://user-images.githubusercontent.com/46613983/225865146-2faab9d4-6840-437a-b57f-ac375ac85f3a.png">
+![compare](https://user-images.githubusercontent.com/46613983/226257335-099fc1ff-13df-4bb2-915f-2bd89b6eabe5.png)
 
 ### This is mainly useful, because now SQL errors can be caught immediately:
 

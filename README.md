@@ -8,13 +8,11 @@ This extension was primarily built out of a very specific, niche scenario in my 
 for SQL queries embedded within Python Files
 
 ### Before & After Comparison:
+<img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464783-1c669915-5744-4f90-b54c-afaa3819bb6a.png">
+<img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464801-d7408002-8295-42e3-8803-153584f4189a.png">
 
-<img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464560-1f7a233e-a10a-4e04-a342-beca64c1746f.png">
-<img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464549-cbbb7e6c-a1a7-43d9-a9b7-3c4dd603d7cb.png">
-
-
-### This is mainly useful, because now SQL errors can be caught immediately:
-
+#### The utilty of this comes with the fact that SQL errors can be caught immediately instead of run-time:
+<br>
 <img width="1123" alt="image" src="https://user-images.githubusercontent.com/46613983/225865999-467bcac5-f8e3-4622-b348-e0702d838cdd.png">
 
 ## How To Use

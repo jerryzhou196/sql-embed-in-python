@@ -4,11 +4,14 @@ This extension was primarily built out of a very specific, niche scenario in my 
 
 - Formatter for SQL queries embedded within Python Files
 
-- Syntax Highlighting for SQL queries embedded within Python Files
+- Syntax Highlighting 
+for SQL queries embedded within Python Files
 
-### Before & After:
-![image](https://user-images.githubusercontent.com/46613983/226263281-f07e93e1-2c4b-4820-b29e-fb20c7bda70f.png)
-![image](https://user-images.githubusercontent.com/46613983/226263300-4bfbbe8c-d275-4d66-b337-1762a544b665.png)
+### Before & After Comparison:
+
+<img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464560-1f7a233e-a10a-4e04-a342-beca64c1746f.png">
+<img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464549-cbbb7e6c-a1a7-43d9-a9b7-3c4dd603d7cb.png">
+
 
 ### This is mainly useful, because now SQL errors can be caught immediately:
 

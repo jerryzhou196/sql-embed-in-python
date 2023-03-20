@@ -8,6 +8,7 @@ This extension was primarily built out of a very specific, niche scenario in my 
 for SQL queries embedded within Python Files
 
 ### Before & After Comparison:
+
 <img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464783-1c669915-5744-4f90-b54c-afaa3819bb6a.png">
 
 <img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226467742-4cc6bc52-6244-4b4d-bd94-8ff8a5dbe679.png">

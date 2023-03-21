@@ -2,95 +2,106 @@ import * as vscode from "vscode";
 import { format } from "sql-formatter";
 
 export function activate(context: vscode.ExtensionContext) {
+  // Define formatting options
+  const formatOptions = {
+    keywordCasing: "upper",
+    linesBetweenQueries: 2,
+    whereOnNewLine: true,
+    groupByOnNewLine: true,
+    orderByOnNewLine: true,
+    selectItemOnNewLine: true,
+    joinTableOnNewLine: true,
+  };
   // Register a new command for formatting SQL
-  const formatSQLCommand = vscode.commands.registerCommand(
-    "sql-embed-in-python.format-SQL",
-    () => {
-      // Get the active editor
-      const editor = vscode.window.activeTextEditor;
-      let indent = "    ";
+  vscode.commands.registerCommand("sql-embed-in-python.format-SQL", () => {
+    // Get the active editor
+    const editor = vscode.window.activeTextEditor;
 
-      if (editor) {
-        // Get the document and selection ranges
-        const document = editor.document;
-        const selection = editor.selection;
+    if (editor) {
+      // Get the document and selection ranges
+      const document = editor.document;
+      const selection = editor.selection;
 
-        // Get the selected text
-        let text = document.getText(selection);
+      // Get the selected text
+      let text = document.getText(selection);
 
-        // text = text.replace(/\?/g, () => {
-        //   return "PLACEHOLDER_COLUMN";
-        // });
+      text = text.replace(/\?/g, () => {
+        return "PLACEHOLDER_COLUMN";
+      });
+      /\{/;
 
-        // text = text.replace("/}/g", () => {
-        //   return "PLACEHOLDER_RIGHT_BRACE";
-        // });
+      text = text.replace(/\}/g, () => {
+        return "PLACEHOLDER_RIGHT_BRACE";
+      });
 
-        // text = text.replace("/{/g", () => {
-        //   return "PLACEHOLDER_LEFT_BRACE";
-        // });
+      text = text.replace(/\{/g, () => {
+        return "PLACEHOLDER_LEFT_BRACE";
+      });
 
-        // Format the SQL using sql-formatter
-        try {
-          text = format(text, {
-            language: "sql",
-            useTabs: true,
-            indentStyle: "standard",
-            tabWidth: 2,
-            commaPosition: "after",
-            linesBetweenQueries: 2,
-            expressionWidth: 50,
-            keywordCase: "upper",
+      console.log(text);
+      // Format the SQL using sql-formatter
+      vscode.window
+        .showQuickPick(
+          [
+            "mysql",
+            "sql",
+            "bigquery",
+            "db2",
+            "hive",
+            "mariadb",
+            "n1ql",
+            "plsql",
+            "postgresql",
+            "redshift",
+            "singlestoredb",
+            "snowflake",
+            "spark",
+            "sqlite",
+            "transactsql",
+            "trino",
+          ],
+          {
+            placeHolder: "Select SQL dialect",
+          }
+        )
+        .then((selectedOption) => {
+          let formattedSql = format(
+            text.replace(/^(\'\'\'|\"\"\")|(\'\'\'|\"\"\")$/gm, ""),
+            { language: selectedOption, ...formatOptions }
+          );
+          formattedSql = formattedSql.replace(/PLACEHOLDER_COLUMN/g, () => {
+            return "?";
           });
-
-          const lines = text.split("\n");
-          const newLines: string[] = [];
-          lines.forEach((line: string) => {
-            const regex = /^\s*--/;
-            const isFirst = regex.test(line);
-
-            //if line has a comment at the beginning, then skip to push to newLines
-            if (isFirst) {
-              newLines.push(line);
-            } else if (line && line.match(/\bON\b(.*)/)) {
-              const leadingSpaces: RegExpMatchArray | null = line.match(/^\s*/);
-              const afterON: RegExpMatchArray | null = line.match(/\bON\b(.*)/);
-              let space: string = leadingSpaces ? leadingSpaces[0] : "";
-              let after: string = afterON ? afterON[1] : "";
-              newLines.push(line.replace(/\bON\b(.*)/, "").replace("ON", ""));
-              newLines.push(space + "ON" + after);
-            } else {
-              newLines.push(line);
+          formattedSql = formattedSql.replace(
+            /PLACEHOLDER_RIGHT_BRACE/g,
+            () => {
+              return "{";
             }
+          );
+          formattedSql = formattedSql.replace(/PLACEHOLDER_LEFT_BRACE/g, () => {
+            return "}";
           });
-          text = newLines.join("\n");
-
+          console.log(formattedSql);
           // Replace the selected text with the formatted SQL
           editor.edit((editBuilder) => {
-            editBuilder.replace(selection, text);
+            editBuilder.replace(selection, formattedSql);
           });
-        } catch (error) {
-          vscode.window.showErrorMessage(
-            "SQL couldn't be formatted. This is most likely because your selection contains invalid SQL (eg. contains .. )" +
-              error
+
+          // Show a message indicating that the SQL has been formatted
+          vscode.window.showInformationMessage(
+            "Formatted SQL in Python string literal"
           );
-        }
-
-        // text = text.replace(/PLACEHOLDER_COLUMN/g, () => {
-        //   return "?";
-        // });
-
-        // text = text.replace(/PLACEHOLDER_RIGHT_BRACE/g, () => {
-        //   return "}";
-        // })       // Add the indentation to each line in the formatted SQL
-        // text = text
-        //   .split("\n")
-        //   .map((line) => " ".repeat(currentIndentation) + line)
-        //   .join("\n");
-      }
+          // } else {
+          // Show an error message if the selected text is not a Python string literal containing SQL
+          //   vscode.window.showErrorMessage('Selected text is not a Python string literal containing SQL');
+          // }
+        });
+    } else {
+      // Show an error message if no editor is active
+      vscode.window.showErrorMessage("No active editor");
     }
-  );
-
-  // Add the command to the extension context
-  context.subscriptions.push(formatSQLCommand);
+  });
 }
+
+// This method is called when your extension is deactivated
+export function deactivate() {}

@@ -1,3 +1,7 @@
+<p align = "center">
+<img src="https://user-images.githubusercontent.com/46613983/226666835-c26b8937-3961-48de-9dee-70f8a779504b.gif"> 
+</p>
+
 ## Features
 
 This extension was primarily built out of a very specific, niche scenario in my latest co-op. It provides two tools:
@@ -5,10 +9,6 @@ This extension was primarily built out of a very specific, niche scenario in my 
 - Formatter for SQL queries embedded within Python Files for SQL queries embedded within Python Files
 
 - Syntax Highlighting 
-
-<p align = "center">
-<img src="https://user-images.githubusercontent.com/46613983/226666835-c26b8937-3961-48de-9dee-70f8a779504b.gif"> 
-</p>
 
 ### Before:
 <img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464783-1c669915-5744-4f90-b54c-afaa3819bb6a.png">
@@ -19,6 +19,10 @@ This extension was primarily built out of a very specific, niche scenario in my 
 #### The utilty of this comes with the fact that SQL errors can be caught immediately instead of run-time:
 <br>
 <img width="1123" alt="image" src="https://user-images.githubusercontent.com/46613983/225865999-467bcac5-f8e3-4622-b348-e0702d838cdd.png">
+
+
+
+
 
 ## How To Use
 

@@ -3,7 +3,7 @@
   "displayName": "SQL in Python Highlighter/Formatter",
   "description": "",
   "icon": "images/pythonsql.png",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "publisher": "jerrdeh",
   "engines": {
     "vscode": "^1.76.0"

@@ -2,11 +2,13 @@
 
 This extension was primarily built out of a very specific, niche scenario in my latest co-op. It provides two tools:
 
-- Formatter for SQL queries embedded within Python Files
+- Formatter for SQL queries embedded within Python Files for SQL queries embedded within Python Files
 
 - Syntax Highlighting 
 
-for SQL queries embedded within Python Files
+<p align = "center">
+<img src="https://user-images.githubusercontent.com/46613983/226666835-c26b8937-3961-48de-9dee-70f8a779504b.gif"> 
+</p>
 
 ### Before:
 <img width="1019" alt="image" src="https://user-images.githubusercontent.com/46613983/226464783-1c669915-5744-4f90-b54c-afaa3819bb6a.png">

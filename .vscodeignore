@@ -1,15 +1,10 @@
-src
-.vscode
 .vscode/**
-node_modules
 .vscode-test/**
 src/**
+.gitignore
 .yarnrc
 vsc-extension-quickstart.md
 **/tsconfig.json
 **/.eslintrc.json
 **/*.map
 **/*.ts
-extension.js
-extension.js.map
-sql-in-python-highlighting-0.0.*.vsix

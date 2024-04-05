@@ -2,9 +2,9 @@
 
 This extension was primarily built out of a very specific, niche scenario in my latest co-op. It provides two tools:
 
-- Formatter for SQL queries embedded within Python Files for SQL queries embedded within Python Files
+- Formatter for SQL queries (supported dialects: MySQL, PostgreSQL, MsSQL) embedded within Python Files
 
-- Syntax Highlighting 
+- Syntax Highlighting
 
 ### Formatter:
 <p align = "center">

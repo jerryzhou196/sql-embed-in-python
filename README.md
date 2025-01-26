@@ -1,3 +1,5 @@
+SQL Embed in Python
+
 ## Features
 
 This extension was primarily built out of a very specific, niche scenario in my latest co-op. It provides two tools:
